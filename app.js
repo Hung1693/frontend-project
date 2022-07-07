@@ -116,8 +116,8 @@ $('.search-button').click(() => {
     $('.modal-found').empty();
     let $inputValue = $('.form-control').val();
     let foundLink = `https://picsum.photos/id/${$inputValue}/500`;
-         let $imgModal = $(`<img class="img-fluid" src=${foundLink} alt="">`)
-        $('.modal-found').append($imgModal);
+         let $imgFoundModal = $(`<img class="img-fluid" src=${foundLink} alt="">`)
+        $('.modal-found').append($imgFoundModal);
     
     console.log($inputValue);
 })

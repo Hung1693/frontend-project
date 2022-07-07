@@ -62,7 +62,7 @@ function createCard(element) {
 }
 
 // Use AJAX to call API
-$.get("https://picsum.photos/v2/list?limit=10", function (data) {
+$.get("https://picsum.photos/v2/list?limit=100", function (data) {
     data.map(element => {
         createCard(element);
     });
@@ -78,29 +78,30 @@ $likedImgNav.click(function () {
         } alt="">`)
         $('.modal-body').append($imgModal);
     });
-    console.log(likedImg);
 });
 
 
 // FEATURE 3: USER SCROLL DOWN TO LOAD MORE IMAGES
-let flag = false;
+
 let count = 0;
-if (! flag) {
-    $(window).on("scroll", function () {
-        let scrollHeight = $(document).height();
-        let scrollPos = $(window).height() + $(window).scrollTop();
-        if (((scrollHeight - 300) >= scrollPos) / scrollHeight == 0) {
-            count++;
-            $.get(`https://picsum.photos/v2/list?page=${
-                count + 10
-            }&limit=1`, function (data) {
-                data.forEach(element => {
-                    createCard(element);
-                });
+
+$(window).on("scroll", function () {
+    let scrollHeight = $(document).height();
+    let scrollPos = $(window).height() + $(window).scrollTop();
+    if (((scrollHeight - 300) >= scrollPos) / scrollHeight == 0) {
+        count++;
+        $.get(`https://picsum.photos/v2/list?page=${
+            count + 10
+        }&limit=10`, function (data) {
+            data.forEach(element => {
+                createCard(element);
             });
-        }
-    });
-}
+
+        });
+    }
+
+
+});
 
 
 // FEATURE 4: DARK MODE SWITCH
@@ -112,20 +113,24 @@ $switch.click(function () {
         $('body').css('color', `white`);
         $('.navbar').css('color', `white`);
         $('.nav-link').css('color', `white`);
+        $('.darkMode').css('visibility', 'visible')
+
 
     } else {
         $('body').css('background-image', `url(https://images.unsplash.com/photo-1634655377962-e6e7b446e7e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80)`);
         $('body').css('color', `black`);
         $('.navbar').css('color', `black`);
         $('.nav-link').css('color', `black`);
+        $('.darkMode').css('visibility', 'hidden')
+
 
     }
 });
 
 // FEATURE 5: SEARCH IMG BY ID
 $('.search-button').click(() => { // $('.modal-found').empty();
+    $('.modal-found').empty();
     let $inputValue = $('.form-control').val();
-    console.log(typeof $inputValue);
     if ($.isNumeric(parseInt($inputValue))) {
         let foundLink = `https://picsum.photos/id/${$inputValue}/500`;
         let $imgFoundModal = $(`<img class="img-fluid" src=${foundLink} alt="">`)
@@ -133,15 +138,14 @@ $('.search-button').click(() => { // $('.modal-found').empty();
     }
 
 
-    $.get("https://picsum.photos/v2/list?limit=1000", function (data) {
-        data.map(element => {
+    $.get("https://picsum.photos/v2/list?limit=100", function (data) {
+        data.forEach(element => {
             if ($inputValue.toLowerCase() === element.author.toLowerCase()) {
-                $('.modal-found').empty();
                 let $imgFoundModal = $(`<img class="img-fluid" src=${
                     element.download_url
                 } alt="">`)
                 $('.modal-found').append($imgFoundModal);
-                console.log(element);
+
             }
 
         });

@@ -113,7 +113,7 @@ $switch.click(function() {
 
 //FEATURE 5: SEARCH IMG BY ID
 $('.search-button').click(() => {
-    $('.modal-found').empty();
+    // $('.modal-found').empty();
     let $inputValue = $('.form-control').val();
     let foundLink = `https://picsum.photos/id/${$inputValue}/500`;
          let $imgFoundModal = $(`<img class="img-fluid" src=${foundLink} alt="">`)

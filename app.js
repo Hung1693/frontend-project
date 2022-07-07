@@ -128,7 +128,8 @@ $switch.click(function () {
 });
 
 // FEATURE 5: SEARCH IMG BY ID
-$('.search-button').click(() => { // $('.modal-found').empty();
+$('.search-button').click(() => {
+    $('.modal-found').empty();
     let $inputValue = $('.form-control').val();
     if ($.isNumeric(parseInt($inputValue))) {
         $('.modal-found').empty();

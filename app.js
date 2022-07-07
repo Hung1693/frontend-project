@@ -136,21 +136,22 @@ $('.search-button').click(() => {
         let foundLink = `https://picsum.photos/id/${$inputValue}/500`;
         let $imgFoundModal = $(`<img class="img-fluid" src=${foundLink} alt="">`)
         $('.modal-found').append($imgFoundModal);
-    }
+    } else {
+        $.get("https://picsum.photos/v2/list?limit=100", function (data) {
+            data.forEach(element => {
+                if ($inputValue.toLowerCase() === element.author.toLowerCase()) {
+                    let $imgFoundModal = $(`<img class="img-fluid" src=${
+                        element.download_url
+                    } alt="">`)
+                    $('.modal-found').append($imgFoundModal);
 
+                }
 
-    $.get("https://picsum.photos/v2/list?limit=100", function (data) {
-        data.forEach(element => {
-            if ($inputValue.toLowerCase() === element.author.toLowerCase()) {
-                let $imgFoundModal = $(`<img class="img-fluid" src=${
-                    element.download_url
-                } alt="">`)
-                $('.modal-found').append($imgFoundModal);
-
-            }
-
+            });
         });
-    });
+
+
+    }
 
 
 })

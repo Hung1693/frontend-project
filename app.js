@@ -33,7 +33,7 @@ function createCard(element) {
     $cardFooter = $('<div class="card-footer bg-transparent border-success d-flex justify-content-between"></div>');
     $card.append($cardFooter);
 
-    $h3 = $(`<h3>${element.id}</h3>`);
+    $h3 = $(`<h3>ID: ${element.id}</h3>`);
     $thumbsUp = $(`<i class="bi bi-hand-thumbs-up-fill"></i>`)
     $cardFooter.append($h3);
     $cardFooter.append($thumbsUp);
@@ -73,8 +73,10 @@ $likedImgNav.click(function () {
 
 
 //FEATURE 3: USER SCROLL DOWN TO LOAD MORE IMAGES
+let flag = false;
 let count = 0;
-$(window).on("scroll", function () {
+if (!flag) {
+    $(window).on("scroll", function () {
     let scrollHeight = $(document).height();
     let scrollPos = $(window).height() + $(window).scrollTop();
     if(((scrollHeight - 300) >= scrollPos) / scrollHeight == 0) {
@@ -86,6 +88,8 @@ $(window).on("scroll", function () {
         });
     }
 });
+}
+
 
 
 //FEATURE 4: DARK MODE SWITCH
@@ -107,6 +111,16 @@ $switch.click(function() {
     }
 });
 
+//FEATURE 5: SEARCH IMG BY ID
+$('.search-button').click(() => {
+    $('.modal-found').empty();
+    let $inputValue = $('.form-control').val();
+    let foundLink = `https://picsum.photos/id/${$inputValue}/500`;
+         let $imgModal = $(`<img class="img-fluid" src=${foundLink} alt="">`)
+        $('.modal-found').append($imgModal);
+    
+    console.log($inputValue);
+})
 
 
 

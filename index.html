@@ -18,9 +18,9 @@
     <div class="block"></div>
     <h1 class="text-center">Stunning free images</h1>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-xxl fixed-top ">
+    <nav class="navbar navbar-expand-xxl fixed-top flex-column">
         <div class="container-fluid ">
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <div class="collapse navbar-collapse d-flex justify-content-between " id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav-item">
                         <!-- Day and night switch -->
@@ -30,22 +30,27 @@
                     </li>
                    
                 </ul>
+                <div class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search by id" aria-label="Search">
+                    <button class="btn btn-primary me-5 search-button" data-bs-toggle="modal" data-bs-target="#exampleModal2" type="submit">Search</button>
+                </div>
                 <form class="d-flex">
                     <a class="nav-link me-2 p-2" id="liked-img" data-bs-toggle="modal" data-bs-target="#exampleModal1" href="">Images You Liked Here</a>
-                    
                 </form>
             </div>
         </div>
     </nav>
 
+    
+
     <!-- img list -->
-    <div class="container">
+    <div class="container d-flex ">
         <div class="row"></div>
     </div>
 
     <!-- TO DISPLAY LIKED IMAGES -->
     <div id="exampleModal1" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Liked Images</h5>
@@ -60,6 +65,25 @@
             </div>
         </div>
     </div>
+
+    <!-- TO DISPLAY FOUND IMAGES -->
+    <div id="exampleModal2" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">I Found Images You Want</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal-found">
+                    <img class="img-fluid found-img" src="" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 

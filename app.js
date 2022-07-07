@@ -136,6 +136,7 @@ $('.search-button').click(() => { // $('.modal-found').empty();
     $.get("https://picsum.photos/v2/list?limit=1000", function (data) {
         data.map(element => {
             if ($inputValue.toLowerCase() === element.author.toLowerCase()) {
+                $('.modal-found').empty();
                 let $imgFoundModal = $(`<img class="img-fluid" src=${
                     element.download_url
                 } alt="">`)

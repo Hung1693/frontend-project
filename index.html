@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Albums</title>
+</head>
+
+
+<body>
+    <div class="block"></div>
+    <h1 class="text-center">Stunning free images</h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-xxl fixed-top ">
+        <div class="container-fluid ">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <!-- Day and night switch -->
+                        <div class="form-check form-switch m-2">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"> Dark Mode Switch
+                        </div>
+                    </li>
+                   
+                </ul>
+                <form class="d-flex">
+                    <a class="nav-link me-2 p-2" id="liked-img" data-bs-toggle="modal" data-bs-target="#exampleModal1" href="">Images You Liked Here</a>
+                    
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- img list -->
+    <div class="container">
+        <div class="row"></div>
+    </div>
+
+    <!-- TO DISPLAY LIKED IMAGES -->
+    <div id="exampleModal1" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Liked Images</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img class="img-fluid" src="" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script src="./app.js"></script>
+
+</body>
+
+
+</html>

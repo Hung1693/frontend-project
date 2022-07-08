@@ -1,107 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./style.css">
-    <title>Albums</title>
-</head>
+        <link rel="stylesheet" href="./style.css">
+        <title>Albums</title>
+    </head>
 
 
-<body>
-    <div class="block"></div>
-    
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-xxl fixed-top flex-column">
-        <div class="container-fluid ">
-            <div class="collapse navbar-collapse d-flex justify-content-between " id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                    <li class="nav-item">
-                        <!-- Day and night switch -->
-                        <div class="form-check form-switch m-2">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"> <span class="darkMode">Dark Mode</span>
-                        </div>
-                    </li>
-                    <h3 class="text-center">Stunning free images</h3>
-                </ul>
-                <div class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Id or author's name" aria-label="Search">
-                    <button class="btn btn-primary me-5 search-button" data-bs-toggle="modal" data-bs-target="#exampleModal2" type="submit">Search</button>
-                </div>
-                <form class="d-flex">
-                    <a class="nav-link me-2 p-2" id="liked-img" data-bs-toggle="modal" data-bs-target="#exampleModal1" href="">Images You Liked Here</a>
-                </form>
-            </div>
-        </div>
-    </nav>
+    <body>
+        <div class="block"></div>
 
-    
-
-    <!-- img list -->
-    <div class="container d-flex ">
-        <div class="row"></div>
-    </div>
-
-    <!-- TO DISPLAY LIKED IMAGES -->
-    <div id="exampleModal1" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Liked Images</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img class="img-fluid" src="" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-xxl fixed-top flex-column">
+            <div class="container-fluid ">
+                <div class="collapse navbar-collapse d-flex justify-content-between " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <li class="nav-item">
+                            <!-- Day and night switch -->
+                            <div class="form-check form-switch m-2">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"> <span
+                                    class="darkMode">Dark Mode</span>
+                            </div>
+                        </li>
+                        <h3 class="text-center">Stunning free images</h3>
+                    </ul>
+                    <div class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Id or author's name"
+                            aria-label="Search">
+                        <button class="btn btn-primary me-5 search-button" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal2" type="submit">Search</button>
+                    </div>
+                    <form class="d-flex">
+                        <a class="nav-link me-2 p-2" id="liked-img" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal1" href="">Images You Liked Here</a>
+                    </form>
                 </div>
             </div>
-        </div>
-    </div>
+        </nav>
 
-    <!-- TO DISPLAY FOUND IMAGES -->
-    <div id="exampleModal2" class="modal fade" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">I Found Images You Want</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body modal-found">
-                    <img class="img-fluid found-img" src="" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+
+        <!-- img list -->
+        <div class="container d-flex ">
+            <div class="row"></div>
+        </div>
+
+        <!-- TO DISPLAY LIKED IMAGES -->
+        <div id="exampleModal1" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Liked Images</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body " id="liked-modal">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- TO DISPLAY FOUND IMAGES -->
+        <div id="exampleModal2" class="modal fade" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">I Found Images You Want</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body modal-found">
+                        <img class="img-fluid found-img" src="" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-    <a href="#" class="backToTop cd-top text-replace js-cd-top fixed-bottom ms-3">
-        <i class="bi bi-chevron-double-up"></i>
-    </a>
+        <a href="#" class="backToTop cd-top text-replace js-cd-top fixed-bottom ms-3">
+            <i class="bi bi-chevron-double-up"></i>
+        </a>
 
 
 
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-    crossorigin="anonymous"></script>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
 
-    <script src="./jquery-3.6.0.min.js"></script>
+        <script src="./jquery-3.6.0.min.js"></script>
 
-    <script src="./app.js"></script>
+        <script src="./app.js"></script>
 
-</body>
+    </body>
 
 
 </html>

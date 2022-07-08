@@ -131,27 +131,53 @@ $switch.click(function () {
 $('.search-button').click(() => {
     $('.modal-found').empty();
     let $inputValue = $('.form-control').val();
-    if ($.isNumeric(parseInt($inputValue))) {
-        $('.modal-found').empty();
-        let foundLink = `https://picsum.photos/id/${$inputValue}/500`;
+    if ($.isNumeric(parseInt($inputValue))) { // $('.modal-found').empty();
+
+        let foundLink = `https://picsum.photos/id/${$inputValue}/2500/1667`;
         let $imgFoundModal = $(`<img class="img-fluid" src=${foundLink} alt="">`)
-        $('.modal-found').append($imgFoundModal);
+        let $thumbsUp = $(`<i class="bi bi-hand-thumbs-up-fill"></i>`);
+
+        $thumbsUp.click(function () {
+            $thumbsUp.toggleClass('checked');
+
+            if ($thumbsUp.hasClass('checked')) {
+                $thumbsUp.css('color', 'blue');
+            } else {
+                $thumbsUp.css('color', 'gray');
+                // $('#liked-modal').remove($imgFoundModal);
+            }
+        });
+        $('#liked-modal').append($imgFoundModal);
+
+        $('.modal-found').prepend($imgFoundModal);
+        $('.modal-found').append($thumbsUp);
+
     } else {
         $.get("https://picsum.photos/v2/list?limit=100", function (data) {
             data.forEach(element => {
+                $thumbsUp = $(`<i class="bi bi-hand-thumbs-up-fill"></i>`)
+
                 if ($inputValue.toLowerCase() === element.author.toLowerCase()) {
                     let $imgFoundModal = $(`<img class="img-fluid" src=${
                         element.download_url
                     } alt="">`)
+                    $thumbsUp.click(function () {
+                        $(this).toggleClass('checked');
+                        $imgModal = $(`<img class="img-fluid" src=${
+                            element.download_url
+                        } alt="">`)
+                        if ($(this).hasClass('checked')) {
+                            $(this).css('color', 'blue');
+                            likedImg.push(element);
+                        } else {
+                            $(this).css('color', 'gray');
+                            likedImg.splice($.inArray(element, likedImg), 1);
+                        }
+                    });
                     $('.modal-found').append($imgFoundModal);
-
+                    $('.modal-found').append($thumbsUp);
                 }
-
             });
         });
-
-
     }
-
-
 })
